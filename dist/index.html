@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Clone Coaching</title>
+  <meta name="description" content="Build your AI digital twin, scale your coaching to hundreds of clients, and earn while you sleep."/>
+  <meta name="theme-color" content="#E91E8C"/>
+  <meta property="og:title" content="AI Clone Coaching"/>
+  <meta property="og:description" content="Build your AI digital twin and earn while you sleep."/>
+  <meta property="og:type" content="website"/>
+  <!-- Preload critical font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <!-- Compiled & minified CSS — no runtime processing -->
+  <link rel="stylesheet" href="bundle.min.css"/>
+  <style>
+    body{margin:0;background:#0A0718;}
+    #root{min-height:100vh;}
+    /* Loading splash shown before JS hydrates */
+    #splash{position:fixed;inset:0;background:#0A0718;display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity 0.4s;}
+    #splash.hidden{opacity:0;pointer-events:none;}
+    .splash-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#E91E8C,#7C3AED,#4F46E5);display:flex;align-items:center;justify-content:center;animation:splash-pulse 1.4s ease-in-out infinite;}
+    @keyframes splash-pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(233,30,140,0.4);}50%{transform:scale(1.05);box-shadow:0 0 0 16px rgba(233,30,140,0);}}
+  </style>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+</head>
+<body>
+  <!-- Loading splash -->
+  <div id="splash">
+    <div class="splash-icon">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <circle cx="14" cy="14" r="12" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none"/>
+        <path d="M11 9.5L20 14L11 18.5V9.5Z" fill="white"/>
+        <circle cx="21.5" cy="6.5" r="4" fill="#A3E635"/>
+        <line x1="21.5" y1="4.5" x2="21.5" y2="8.5" stroke="#0A0718" stroke-width="1.4" stroke-linecap="round"/>
+        <line x1="19.5" y1="6.5" x2="23.5" y2="6.5" stroke="#0A0718" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <div id="root"></div>
+
+  <!-- Pre-compiled production bundle — no Babel, no JSX transform at runtime -->
+  <script src="bundle.min.js"></script>
+  <script>
+    // Hide splash once React has mounted
+    document.addEventListener('DOMContentLoaded', function() {
+      var splash = document.getElementById('splash');
+      setTimeout(function() {
+        splash.classList.add('hidden');
+        setTimeout(function() { splash.remove(); }, 400);
+      }, 300);
+    });
+  </script>
+</body>
+</html>
